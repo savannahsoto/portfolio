@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Written Works — The Signal</title>
+<meta name="description" content="Papers, articles, and blog posts by Savannah Soto, Computer & Electrical Engineering student." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Written Works — The Signal" />
+<meta property="og:description" content="Papers, articles, and blog posts by Savannah Soto, Computer & Electrical Engineering student." />
+<meta property="og:image" content="assets/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Written Works — The Signal" />
+<meta name="twitter:description" content="Papers, articles, and blog posts by Savannah Soto, Computer & Electrical Engineering student." />
+<meta name="twitter:image" content="assets/og-image.png" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.78em' font-size='80' font-family='Georgia,serif'%3ES%3C/text%3E%3C/svg%3E" />
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/portfolio.css" />
+<link rel="stylesheet" href="css/widgets.css" />
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<header class="masthead">
+  <div class="container masthead-inner">
+    <a href="index.html" class="masthead-name">Savannah Soto</a>
+    <p class="masthead-tag">Field notes from a Computer &amp; Electrical Engineering student — Vol. 01</p>
+  </div>
+</header>
+
+<nav class="index-rail" id="navbar">
+  <button class="rail-toggle" id="navToggle" aria-label="Toggle index">Index ▾</button>
+  <ul class="rail-list" id="navLinks">
+    <li><a href="portfolio.html#about"><span class="rail-num">01</span><span class="rail-label">About</span></a></li>
+    <li><a href="portfolio.html#projects"><span class="rail-num">02</span><span class="rail-label">Projects</span></a></li>
+    <li><a href="writing.html" class="active"><span class="rail-num">03</span><span class="rail-label">Written&nbsp;Works</span></a></li>
+    <li><a href="portfolio.html#skills"><span class="rail-num">04</span><span class="rail-label">Skills</span></a></li>
+    <li><a href="portfolio.html#contact"><span class="rail-num">05</span><span class="rail-label">Contact</span></a></li>
+  </ul>
+  <button class="palette-trigger" id="paletteTrigger" aria-label="Open command palette" title="Jump to (Ctrl+K)">⌘K</button>
+</nav>
+
+<div class="palette-overlay" id="paletteOverlay">
+  <div class="palette-box">
+    <input type="text" id="paletteInput" class="palette-input" placeholder="Jump to a section, project, or written work..." autocomplete="off" />
+    <ul class="palette-results" id="paletteResults"></ul>
+  </div>
+</div>
+
+<main>
+
+<header class="page-header">
+  <div class="container reveal">
+    <p class="index-tag"><span class="num">N&deg;03</span> Written Works</p>
+    <h1 class="section-title">Everything I've written.</h1>
+    <p class="section-sub">Papers, articles, and blog posts — everywhere I've nerded out on paper.</p>
+    <a href="portfolio.html#writing" class="back-link">&larr; Back to the front page</a>
+  </div>
+</header>
+
+<section class="section" id="pinned">
+  <div class="container">
+    <h2 class="section-title small-title reveal">Pinned favorites</h2>
+    <div class="entry-list" id="pinnedWritingList"></div>
+  </div>
+</section>
+
+<section class="section section-alt" id="all">
+  <div class="container">
+    <h2 class="section-title small-title reveal">All written works</h2>
+    <div class="entry-list" id="allWritingList"></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span>The Signal — Vol. 01, No. 01</span>
+    <span>Designed &amp; built by Savannah Soto, 2026</span>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+<script src="js/data.js"></script>
+<script src="js/cards.js"></script>
+<script src="js/sparkles.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/progress-bar.js"></script>
+<script src="js/command-palette.js"></script>
+<script src="js/easter-egg.js"></script>
+<script src="js/placeholder-links.js"></script>
+<script>
+  initSparkles({ every: 90 });
+  window.addEventListener('DOMContentLoaded', () => {
+    initSharedNav();
+    initProgressBar();
+    initCommandPalette();
+    mountWritings(document.getElementById('pinnedWritingList'), WRITINGS.filter((w) => w.pinned));
+    mountWritings(document.getElementById('allWritingList'), WRITINGS.filter((w) => !w.pinned));
+    observeReveal();
+  });
+</script>
+</body>
+</html>

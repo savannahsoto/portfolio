@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Savannah Soto — The Signal</title>
+<meta name="description" content="Field notes from Savannah Soto, Computer &amp; Electrical Engineering student." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Savannah Soto — The Signal" />
+<meta property="og:description" content="Field notes from Savannah Soto, Computer & Electrical Engineering student." />
+<meta property="og:image" content="assets/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Savannah Soto — The Signal" />
+<meta name="twitter:description" content="Field notes from Savannah Soto, Computer & Electrical Engineering student." />
+<meta name="twitter:image" content="assets/og-image.png" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.78em' font-size='80' font-family='Georgia,serif'%3ES%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/portfolio.css" />
+<link rel="stylesheet" href="css/widgets.css" />
+<script>
+  /* Runs before first paint. If we arrived from the cover AND the browser has
+     no cross-document view transitions, mark the doc so the home page plays a
+     short staggered entrance (see [data-enter] in base.css). Where view
+     transitions exist, the browser animates the navigation itself. */
+  (function () {
+    var fromCover = sessionStorage.getItem('coverEnter') === '1';
+    sessionStorage.removeItem('coverEnter');
+    if (fromCover && !('onpagereveal' in window)) {
+      document.documentElement.classList.add('arriving-from-cover');
+    }
+  })();
+</script>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<header class="masthead" data-enter="1">
+  <div class="container masthead-inner">
+    <a href="index.html" class="masthead-name">Savannah Soto</a>
+    <p class="masthead-tag">Field notes from a Computer &amp; Electrical Engineering student — Vol. 01</p>
+  </div>
+</header>
+
+<nav class="index-rail" id="navbar" data-enter="1">
+  <button class="rail-toggle" id="navToggle" aria-label="Toggle index">Index ▾</button>
+  <ul class="rail-list" id="navLinks">
+    <li><a href="#about" data-nav><span class="rail-num">01</span><span class="rail-label">About</span></a></li>
+    <li><a href="#projects" data-nav><span class="rail-num">02</span><span class="rail-label">Projects</span></a></li>
+    <li><a href="#writing" data-nav><span class="rail-num">03</span><span class="rail-label">Written&nbsp;Works</span></a></li>
+    <li><a href="#skills" data-nav><span class="rail-num">04</span><span class="rail-label">Skills</span></a></li>
+    <li><a href="#contact" data-nav><span class="rail-num">05</span><span class="rail-label">Contact</span></a></li>
+  </ul>
+  <button class="palette-trigger" id="paletteTrigger" aria-label="Open command palette" title="Jump to (Ctrl+K)">⌘K</button>
+</nav>
+
+<div class="palette-overlay" id="paletteOverlay">
+  <div class="palette-box">
+    <input type="text" id="paletteInput" class="palette-input" placeholder="Jump to a section, project, or written work..." autocomplete="off" />
+    <ul class="palette-results" id="paletteResults"></ul>
+  </div>
+</div>
+
+<main>
+
+<header class="hero" id="about">
+  <div class="container hero-grid reveal" data-enter="2">
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-frame">
+        <img src="assets/profile-photo.jpg" alt="Portrait of Savannah Soto" class="hero-photo" onerror="this.hidden = true" />
+        <div class="hero-photo-placeholder">SS</div>
+      </div>
+      <div class="terminal-mount">
+        <button class="terminal-toggle" id="terminalToggle" aria-label="Open terminal">
+          <span>&gt;_</span><span>terminal</span>
+        </button>
+        <div class="terminal-panel" id="terminalPanel">
+          <div class="terminal-header">
+            <span class="terminal-title">savannah@portfolio: ~</span>
+            <button class="terminal-close" id="terminalClose" aria-label="Close terminal">×</button>
+          </div>
+          <div class="terminal-body" id="terminalBody">
+            <p>Welcome! Type <span class="t-cmd">help</span> to see what I can do.</p>
+          </div>
+          <div class="terminal-input-row">
+            <span class="terminal-prompt">$</span>
+            <input type="text" id="terminalInput" autocomplete="off" spellcheck="false" aria-label="Terminal command input" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-copy">
+      <p class="index-tag"><span class="num">N&deg;01</span> About</p>
+      <h1 class="section-title">Hi, I'm Savannah.</h1>
+      <p class="section-sub">
+        Hi, I'm Savannah, a computer and electrical engineering student with an interest in technology,
+        design, and problem-solving. I enjoy creating projects that are both useful
+        and visually engaging. I am always looking for fresh ideas and new ways to
+        use technology to make everyday experiences better.
+      </p>
+      <dl class="spec-list">
+        <div><dt>School</dt><dd>Oregon State University</dd></div>
+        <div><dt>Field</dt><dd>B.S. Computer &amp; Electrical Engineering</dd></div>
+        <div><dt>Focus</dt><dd>Embedded Systems</dd></div>
+        <div><dt>Also</dt><dd>Full-Stack</dd></div>
+      </dl>
+    </div>
+  </div>
+</header>
+
+<section class="section" id="projects">
+  <div class="container">
+    <p class="index-tag reveal"><span class="num">N&deg;02</span> Projects</p>
+    <h2 class="section-title reveal">Projects I'm proud of</h2>
+    <p class="section-sub reveal">A collection of projects that reflect my skills, curiosity, and growth.</p>
+
+    <div class="entry-list" id="projectList"></div>
+
+    <div class="view-more-wrap reveal">
+      <a href="projects.html" class="text-link">View the full archive <span class="arrow">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="writing">
+  <div class="container">
+    <p class="index-tag reveal"><span class="num">N&deg;03</span> Written Works</p>
+    <h2 class="section-title reveal">Written works</h2>
+    <p class="section-sub reveal">A collection of my papers, articles, and write-ups.</p>
+
+    <div class="entry-list" id="writingList"></div>
+
+    <div class="view-more-wrap reveal">
+      <a href="writing.html" class="text-link">View the full archive <span class="arrow">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <div class="container">
+    <p class="index-tag reveal"><span class="num">N&deg;04</span> Skills</p>
+    <h2 class="section-title reveal">Skills &amp; resume</h2>
+    <p class="section-sub reveal">The languages, tools, and hardware I reach for most.</p>
+
+    <div class="skills-table reveal">
+      <div class="skills-row">
+        <span class="skills-label">Languages</span>
+        <span class="tag-row">
+          <span class="tag">Python</span><span class="tag">C / C++</span><span class="tag">Verilog</span>
+          <span class="tag">MATLAB</span><span class="tag">JavaScript</span><span class="tag">Java</span>
+        </span>
+      </div>
+      <div class="skills-row">
+        <span class="skills-label">Hardware &amp; EE</span>
+        <span class="tag-row">
+          <span class="tag">FPGA</span><span class="tag">Arduino / ESP32</span><span class="tag">KiCad</span>
+          <span class="tag">Oscilloscopes</span><span class="tag">Signal Processing</span>
+        </span>
+      </div>
+      <div class="skills-row">
+        <span class="skills-label">Software &amp; Tools</span>
+        <span class="tag-row">
+          <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Git</span>
+          <span class="tag">Linux</span><span class="tag">Figma</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="resume-cta reveal">
+      <a href="assets/resume.pdf" class="btn btn-primary" download>
+        Download résumé
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt colophon" id="contact">
+  <div class="container reveal">
+    <p class="index-tag"><span class="num">N&deg;05</span> Contact</p>
+    <h2 class="section-title">Let's talk.</h2>
+    <p class="section-sub">Open to internship opportunities, collaborations, and conversations about circuits, code, or clean UI.</p>
+
+    <div class="contact-actions">
+      <button class="btn btn-primary" id="copyEmailBtn">
+        Email coming soon
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="9" y="9" width="12" height="12" rx="1"/><path d="M5 15V5a2 2 0 012-2h10"/></svg>
+      </button>
+      <a href="#" class="btn btn-outline" id="githubLink" target="_blank" rel="noopener">GitHub</a>
+      <a href="#" class="btn btn-outline" id="linkedinLink" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span>The Signal — Vol. 01, No. 01</span>
+    <span>Designed &amp; built by Savannah Soto, 2026</span>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+<div class="toast" id="toast">Copied</div>
+
+<script src="js/data.js"></script>
+<script src="js/cards.js"></script>
+<script src="js/sparkles.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/progress-bar.js"></script>
+<script src="js/command-palette.js"></script>
+<script src="js/terminal.js"></script>
+<script src="js/easter-egg.js"></script>
+<script src="js/placeholder-links.js"></script>
+<script src="js/portfolio.js"></script>
+</body>
+</html>

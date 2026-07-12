@@ -1,0 +1,97 @@
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+body::after {
+  content: '';
+  position: fixed;
+  inset: 14px;
+  border: 1px solid var(--rule);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.signal-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.cover {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 0;
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+.cover a { pointer-events: auto; }
+
+.cover-grid { display: block; }
+
+.cover-text-col { max-width: 640px; }
+
+.cover-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(3.4rem, 9vw, 7.2rem);
+  line-height: 0.92;
+  margin: 12px 0 20px;
+}
+
+.cover-role {
+  max-width: 420px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.cover-footer {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-align: center;
+  margin-top: 48px;
+}
+
+.reveal-in {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: coverIn 0.7s ease forwards;
+  animation-delay: var(--delay, 0s);
+}
+@keyframes coverIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Landing exit — fallback path for browsers without cross-document view
+   transitions. The cover content lifts and fades over the constant ivory
+   background (the constellation canvas stays put); the home page then plays
+   its staggered entrance. No veil, nothing darkens. */
+body.cover-leaving .cover {
+  opacity: 0;
+  transform: translateY(-24px);
+  transition: opacity var(--exit-dur) var(--enter-ease),
+              transform var(--exit-dur) var(--enter-ease);
+}
+
+/* Continuity anchor: the big cover title morphs into the small home masthead
+   name where cross-document view transitions are supported. */
+.cover-title { view-transition-name: hero-name; }
+
+@media (max-width: 720px) {
+  .cover-title { font-size: clamp(2.8rem, 15vw, 4.2rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-in { animation: none; opacity: 1; transform: none; }
+  body.cover-leaving .cover { transition: none; }
+}
